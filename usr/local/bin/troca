@@ -1,8 +1,0 @@
-#!/bin/bash
-
-#script para trocar o nome do alvo em Makefile
-
-echo "cat Makefile | awk '{ if(\$1~/^PROGRAM/){print \$1\" = $1\"} else {print \$0}}'" | sh > temp
-mv -f temp Makefile 
-rm -f temp
-

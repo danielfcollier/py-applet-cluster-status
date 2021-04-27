@@ -1,9 +1,0 @@
-#!/bin/bash
-
-#Script para colocar nome aos argumento.
-
-for i in `ls $1`; do
-    awk '{ print $0 ; i=NF } END{ for(j=1;j<=i;j++){printf " arg%d",j } printf "\n" }' $1/$i > $1/$i.tmp
-    sed '$s/arg13/locutor/' $1/$i.tmp > $1/$i
-    rm -f $1/$i.tmp
-done

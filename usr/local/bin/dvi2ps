@@ -1,6 +1,0 @@
-#!/bin/bash
-
-#Script para converter do formato ".dvi" para ".ps"
-
-ARQUIVO=`basename $1 .dvi`
-dvips -Pcmz $ARQUIVO.dvi $ARQUIVO.ps
