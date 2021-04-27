@@ -1,5 +1,0 @@
-# Número de nós do cluster
-NNO = 40
-
-# Tempo de atualização do display
-TIMER = 250
