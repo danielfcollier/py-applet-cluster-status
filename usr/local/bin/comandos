@@ -1,0 +1,7 @@
+#!/bin/bash
+
+perl -w /usr/bin/matwrap -language octave $1.h -o $1_octave.cc -stub $1_stub.m
+
+matwrap -language octave $1.h -o $1_octave.cc -stub $1_stub.m
+
+mkoctfile $1_octave.cc

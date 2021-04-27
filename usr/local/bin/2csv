@@ -1,0 +1,11 @@
+#!/bin/bash
+#Script para converter para CSV.
+
+for i in `ls $1`; do 
+    sed 's/ / ,/g' $1/$i > $1/$i.tmp
+    sed 's/^ ,/ /g' $1/$i.tmp > $1/$i
+    sort $1/$i > $1/$i.tmp
+    tac $1/$i.tmp > $1/$i
+    rm -f $1/$i.tmp 
+done
+

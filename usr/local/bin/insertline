@@ -1,0 +1,26 @@
+#!/bin/bash
+
+#Script para adicionar os nomes dos locutores aos arquivos no banco de dados.
+
+#$1 = nome do arquivo onde se encontra o banco de dados.
+
+#Colocar nome do locutor no banco de dados.
+#ps: inserir nome do locutor aqui mesmo, ele nao é um argumento.
+
+LIST=`ls $1`
+
+for i in $LIST; do
+	awk '{ sub(/.$/, " simone", $0); print $0 }' $1/$i > $1/$i.tmp 
+	mv $1/$i.tmp $1/$i
+    #Gera um arquivo que coloca o nome do dono da voz na ultima coluna, e nomeia as colunas com arg(num. da coluna).
+    #tirei : ; i=NF } END{ for(j=1;j<=i;j++) { printf "arg%d ",j }  printf "\n"
+    #Deixa o arquivo no formato CSV.
+	#########sed 's/ / ,/g' $1/$i.tmp > $1/$i 
+	#########sed 's/,$/ /' $1/$i > $1/$i.tmp 
+    #sort $1/$i.tmp > $1/$i
+	#tac $1/$i > $1/$i.tmp
+    #sed 's/arg13/locutor/' $1/$i.tmp > $1/$i.csv
+    #rm $1/$i.tmp
+    #awk 'BEGIN { FS="," } { print $13,$12,$11,$10,$9,$8,$7,$6,$5,$4,$3,$2,$1 }' $1/$i.tmp > $1/$i
+    #########mv $1/$i.tmp $1/$i
+done

@@ -1,0 +1,34 @@
+#!/bin/bash
+
+#Alerta de aviso se ocorrer uso incorreto.
+if [ "$1" = "" ]; then
+    echo "Uso: wav2raw dir [-v]"
+    exit 0
+fi
+
+#Alerta o usuario se colocar mais parametros.
+if [ $# -gt 2 ]; then
+    echo "Uso: wav2raw dir [-v]"
+    exit 0
+fi
+
+#Alerta de uso incorreto do segundo parametro.
+if [ "$2" != "" -a "$2" != "-v" ]; then
+    echo "Uso: wav2raw dir [-v]"
+    exit 0
+fi
+    
+#Converte de wav para raw.
+$(ls -1 $1/*wav | sed -e s/wav// | awk '{ print "sox " $1"wav "$1"raw" }' | sh) 
+
+#Lista dos arquivos convertidos.
+LIST=`ls $1/*raw`
+echo $LIST
+#Conta os arquivos convertidos e imprime na tela(OPCIONAL).
+if [ "$2" = "-v" ]; then
+for i in $LIST; do
+    let "conta = conta + 1"
+    echo "$i" 
+done
+echo $conta
+fi

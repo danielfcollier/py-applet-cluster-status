@@ -1,0 +1,14 @@
+#!/bin/bash
+
+rm $1.h~
+rm $1_octave.cc
+rm $1_octave.cc~
+rm $1_stub.m
+rm $1_stub.m~
+rm $1_octave.oct
+rm $1_octave.oct~
+rm $1_octave.o
+rm $1_octave.o~
+
+
+

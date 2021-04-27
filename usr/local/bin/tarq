@@ -1,0 +1,9 @@
+#!/bin/bash
+echo -n "Digite o arquivo: "; read ARQUIVO
+[ -d "$ARQUIVO" ] && echo "$ARQUIVO eh um diretorio."
+[ -f "$ARQUIVO" ] && echo "$ARQUIVO eh um arquivo."
+[ -f "$ARQUIVO" -o -d "$ARQUIVO" ] ||  echo "o arquivo '$ARQUIVO' nao foi encontrado."
+echo
+
+
+
